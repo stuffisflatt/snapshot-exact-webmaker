@@ -16,6 +16,10 @@ dist-ssr
 .nitro
 *.local
 
+# Local source videos are retained for editing; the site uses the optimized hero variants.
+/public/media/dental.mp4
+/public/media/dental-timeline.mp4
+
 # Wrangler / Cloudflare
 .wrangler/
 .dev.vars
