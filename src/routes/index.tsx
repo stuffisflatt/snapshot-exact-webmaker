@@ -8,6 +8,7 @@ import { HeroHeader } from "@/components/HeroHeader";
 import { ServiceAccordion } from "@/components/ServiceAccordion";
 import Team from "@/components/ui/team";
 import { AnimatedTestimonials, type Testimonial } from "@/components/ui/animated-testimonials";
+import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -112,32 +113,31 @@ function Index() {
         />
 
         {/* FAQ */}
-        <section id="faq" className="faq-section mx-auto max-w-3xl scroll-mt-20 px-5 pb-20">
+        <section id="faq" className="faq-section scroll-mt-20">
+          <div className="faq-content">
           <h2 className="reveal clinic-section-title">Հաճախ տրվող հարցեր</h2>
           <ul className="mt-8 divide-y divide-border border-y border-border">
             {FAQ.map((f, i) => (
               <li key={i}>
-                <button aria-expanded={faq === i} onClick={() => setFaq(faq === i ? null : i)} className="flex w-full items-center justify-between gap-4 py-5 text-left font-semibold">
+                <Button variant="ghost" aria-expanded={faq === i} onClick={() => setFaq(faq === i ? null : i)} className="h-auto whitespace-normal rounded-none flex w-full items-center justify-between gap-4 px-0 py-5 text-left font-semibold hover:bg-transparent hover:text-primary">
                   {f.q}<ChevronDown className={`size-5 shrink-0 transition-transform ${faq === i ? "rotate-180" : ""}`} />
-                </button>
+                </Button>
                 <div className={`grid transition-[grid-template-rows] duration-300 ${faq === i ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}>
                   <p className="overflow-hidden text-muted-foreground"><span className="block pb-5">{f.a}</span></p>
                 </div>
               </li>
             ))}
           </ul>
+          </div>
         </section>
 
         {/* Contact */}
         <section id="contact" className="contact-section relative scroll-mt-16 overflow-hidden">
-          <svg className="pointer-events-none absolute -right-24 -top-24 size-[480px] opacity-30" viewBox="0 0 200 200" aria-hidden>
-            <circle cx="100" cy="100" r="60" fill="none" stroke="currentColor" /><circle cx="100" cy="100" r="80" fill="none" stroke="currentColor" strokeOpacity=".6" /><circle cx="100" cy="100" r="98" fill="none" stroke="currentColor" strokeOpacity=".3" />
-          </svg>
           <div className="contact-content relative mx-auto max-w-6xl px-5 py-20">
             <h2 className="reveal clinic-section-title max-w-xl">Պատրա՞ստ եք առաջին քայլին</h2>
             <p className="reveal mt-4 max-w-md text-lg opacity-90">Ընտրեք հարմար ժամը․ կլինիկան կկապվի ձեզ հետ՝ այցը հաստատելու համար։</p>
             <div className="reveal mt-8 flex flex-col gap-3 sm:flex-row">
-              <button onClick={() => book()} className="btn btn-white"><CalendarCheck className="size-5" />Ամրագրել այցը</button>
+              <Button onClick={() => book()} className="btn btn-white"><CalendarCheck className="size-5" />Ամրագրել այցը</Button>
               <a href={CLINIC.mobileHref} className="btn btn-ghost-white"><Phone className="size-5" />{CLINIC.mobile}</a>
             </div>
             <div className="contact-details mt-14 grid gap-4 sm:grid-cols-3">

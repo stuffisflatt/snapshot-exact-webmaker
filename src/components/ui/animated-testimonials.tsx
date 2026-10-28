@@ -1,6 +1,7 @@
 "use client"
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Button } from "@/components/ui/button"
 import { Share2, Star } from "lucide-react"
 // `motion` is the current package name of Framer Motion (same API), already in this project.
 import { motion, useAnimation, useInView, type Variants } from "motion/react"
@@ -127,19 +128,21 @@ export function AnimatedTestimonials({
                 </div>
               )}
 
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">{title}</h2>
+              <h2 className="clinic-section-title">{title}</h2>
 
               <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed">{subtitle}</p>
 
               <div className="flex items-center gap-3 pt-4">
                 {testimonials.map((_, index) => (
-                  <button
+                  <Button
+                    variant="ghost"
                     key={index}
                     onClick={() => setActiveIndex(index)}
-                    className={`h-2.5 rounded-[3px] transition-all duration-300 ${
+                    className={`h-2.5 p-0 rounded-[3px] transition-all duration-300 ${
                       activeIndex === index ? "w-10 bg-primary" : "w-2.5 bg-muted-foreground/30"
                     }`}
                     aria-label={dotLabel(index)}
+                    aria-pressed={activeIndex === index}
                   />
                 ))}
               </div>
@@ -147,9 +150,9 @@ export function AnimatedTestimonials({
           </motion.div>
 
           {/* Right side: Testimonial cards */}
-          <motion.div variants={itemVariants} className="mr-10 flex flex-col gap-5">
+          <motion.div variants={itemVariants} className="min-w-0 flex flex-col gap-5">
             {header}
-            <div className={header ? "relative min-h-[240px] md:min-h-[260px]" : "relative h-full min-h-[300px] md:min-h-[400px]"}>
+            <div className={header ? "testimonial-window relative min-h-[280px]" : "testimonial-window relative h-full min-h-[300px] md:min-h-[400px]"}>
             {testimonials.map((testimonial, index) => (
               <motion.div
                 key={testimonial.id}
@@ -164,24 +167,27 @@ export function AnimatedTestimonials({
                 style={{ zIndex: activeIndex === index ? 10 : 0 }}
                 aria-hidden={activeIndex !== index}
               >
-                <div className="bg-card rounded-xl px-7 py-6 h-full flex flex-col shadow-[0_1px_2px_rgb(0_0_0/0.04),0_10px_30px_-12px_rgb(0_0_0/0.12)]">
+                <div className="testimonial-card bg-card text-card-foreground rounded-lg px-7 py-6 h-full flex flex-col shadow-card">
                   <div className="flex items-center gap-4">
                     <Avatar className="h-14 w-14">
                       {testimonial.avatar && <AvatarImage src={testimonial.avatar} alt={testimonial.name} />}
                       <AvatarFallback className="text-lg font-semibold">{testimonial.name.charAt(0)}</AvatarFallback>
                     </Avatar>
                     <div className="min-w-0">
-                      <h3 className="flex items-center gap-2 text-lg font-semibold text-slate-800">
+                      <h3 className="flex items-center gap-2 text-base font-semibold text-foreground">
                         {testimonial.name}
                         {testimonial.sample && <span className="rounded-sm border px-2 py-0.5 text-xs font-medium text-muted-foreground">{sampleLabel}</span>}
                       </h3>
-                      <p className="mt-0.5 text-slate-500">{testimonial.company ? `${testimonial.role}, ${testimonial.company}` : testimonial.role}</p>
+                      <p className="mt-0.5 text-sm text-muted-foreground">{testimonial.company ? `${testimonial.role}, ${testimonial.company}` : testimonial.role}</p>
                     </div>
                 <div className="ml-auto self-start">
-                  <button
+                  <Button
+                    variant="ghost"
+                    size="icon"
                     type="button"
                     aria-label={shareLabel}
-                    className="rounded-lg p-2 text-blue-600 transition-colors hover:bg-blue-50"
+                    className="text-muted-foreground hover:text-foreground"
+                    tabIndex={activeIndex === index ? 0 : -1}
                     onClick={() => {
                       const url = shareUrl ?? window.location.href
                       if (navigator.share) navigator.share({ url, text: testimonial.content }).catch(() => {})
@@ -189,7 +195,7 @@ export function AnimatedTestimonials({
                     }}
                   >
                     <Share2 className="h-6 w-6" />
-                  </button>
+                  </Button>
                 </div>
                   </div>
 
@@ -197,11 +203,11 @@ export function AnimatedTestimonials({
                     {Array(testimonial.rating)
                       .fill(0)
                       .map((_, i) => (
-                        <Star key={i} className="h-6 w-6 fill-amber-400 text-amber-400" />
+                        <Star key={i} className="h-4 w-4 fill-primary text-primary" />
                       ))}
                   </div>
 
-                  <p className="mt-2.5 text-[17px] leading-relaxed text-slate-600">{testimonial.content}</p>
+                  <p className="mt-4 text-base leading-relaxed text-muted-foreground">{testimonial.content}</p>
 
                 </div>
               </motion.div>

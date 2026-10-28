@@ -78,7 +78,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { name: "theme-color", content: "#2468E8" },
+      { name: "theme-color", content: "#1b1b1d" },
     ],
     links: [
       { rel: "preload", as: "image", href: "/media/hero-poster.webp" },
