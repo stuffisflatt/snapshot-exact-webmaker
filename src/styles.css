@@ -788,3 +788,47 @@
   .testimonials-section .testimonial-card p { font-size: .875rem; }
   .contact-details { gap: 1.75rem; }
 }
+
+/* Sky zone: services start white and the page gradually becomes sky through team and reviews. */
+.sky-zone {
+  position: relative; isolation: isolate; overflow: hidden;
+  background: linear-gradient(180deg,
+    oklch(1 0 0) 0%, oklch(0.985 0.008 245) 14%, oklch(0.9 0.05 245) 26%,
+    oklch(0.72 0.12 250) 38%, oklch(0.58 0.16 256) 55%, oklch(0.46 0.16 260) 100%);
+}
+.sky-zone > section, .sky-zone > div:not(.sky-ambient) { position: relative; z-index: 1; background: transparent !important; }
+.sky-zone .services-section {
+  --background: transparent; --foreground: oklch(0.2 0.01 255); --card: oklch(1 0 0 / 0.75);
+  --card-foreground: oklch(0.2 0.01 255); --muted-foreground: oklch(0.45 0.015 255);
+  --border: oklch(0.2 0.02 255 / 0.12); --primary: oklch(0.45 0.16 258); --clinic-light: oklch(1 0 0);
+  --clinic-dark: oklch(0.2 0.01 255); color: var(--foreground);
+}
+.sky-zone .services-section .service-item { backdrop-filter: blur(6px); }
+.sky-zone .services-section .service-item[data-open="true"] { box-shadow: 0 18px 40px -24px oklch(0.4 0.15 258 / 0.5); }
+.sky-zone .team-introduction, .sky-zone .testimonials-section {
+  --background: transparent; --foreground: oklch(1 0 0); --muted-foreground: oklch(0.95 0.02 245 / 0.82);
+  --card: oklch(1 0 0 / 0.12); --card-foreground: oklch(1 0 0); --border: oklch(1 0 0 / 0.22);
+  --primary: oklch(1 0 0); --primary-deep: oklch(1 0 0); --primary-soft: oklch(1 0 0 / 0.12);
+  color: var(--foreground);
+}
+.sky-zone .testimonial-card { backdrop-filter: blur(10px); }
+.sky-zone .team-marquee::before, .sky-zone .team-marquee::after { display: none; }
+.sky-zone .review-rating { background: oklch(1 0 0 / 0.12); color: oklch(1 0 0); backdrop-filter: blur(8px); }
+
+/* Barely-there drifting light, like slow clouds. */
+.sky-ambient { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+.sky-ambient span {
+  position: absolute; width: 70vmax; height: 40vmax; border-radius: 50%;
+  background: radial-gradient(closest-side, oklch(1 0 0 / 0.22), transparent);
+  filter: blur(40px); animation: sky-drift 60s ease-in-out infinite alternate;
+}
+.sky-ambient span:nth-child(1) { top: 30%; left: -20%; }
+.sky-ambient span:nth-child(2) { top: 50%; right: -25%; animation-duration: 75s; animation-delay: -20s; }
+.sky-ambient span:nth-child(3) { top: 70%; left: 10%; animation-duration: 90s; animation-delay: -40s; opacity: .7; }
+.sky-ambient span:nth-child(4) { top: 85%; right: 0; animation-duration: 68s; animation-delay: -10s; opacity: .6; }
+@keyframes sky-drift {
+  0% { transform: translate3d(0, 0, 0) scale(1); opacity: .5; }
+  50% { opacity: 1; }
+  100% { transform: translate3d(18vw, -4vh, 0) scale(1.15); opacity: .6; }
+}
+@media (prefers-reduced-motion: reduce) { .sky-ambient span { animation: none; } }

@@ -79,6 +79,8 @@ function Index() {
 
         <StoryScroll videoSrc="/media/story.mp4" posterSrc="/media/story-poster.webp" />
 
+        <div className="sky-zone">
+          <div className="sky-ambient" aria-hidden="true"><span /><span /><span /><span /></div>
         {/* Services */}
         <section id="services" className="services-section scroll-mt-20 px-5 py-20">
           <div className="services-content mx-auto max-w-3xl">
@@ -111,6 +113,8 @@ function Index() {
             </a>
           }
         />
+
+        </div>
 
         {/* FAQ */}
         <section id="faq" className="faq-section scroll-mt-20">
