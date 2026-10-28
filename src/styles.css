@@ -38,7 +38,7 @@
 }
 
 :root {
-  --radius: 1.25rem;
+  --radius: 0.875rem; /* Apple-style scale: sm 6, md 10, lg 14, xl 18, 2xl 22 */
   --background: oklch(1 0 0);
   --foreground: oklch(0.16 0.01 260);
   --card: oklch(1 0 0);
@@ -78,7 +78,7 @@
     -webkit-font-smoothing: antialiased;
   }
   h1, h2, h3 { font-family: var(--font-display); letter-spacing: -0.01em; text-wrap: balance; overflow-wrap: break-word; }
-  :focus-visible { outline: 3px solid var(--ring); outline-offset: 3px; border-radius: 12px; }
+  :focus-visible { outline: 3px solid var(--ring); outline-offset: 3px; border-radius: 8px; }
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
@@ -91,7 +91,7 @@
 
 @utility btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
-  min-height: 3rem; padding: 0 1.4rem; border-radius: 999px; font-weight: 600;
+  min-height: 3rem; padding: 0 1.4rem; border-radius: 10px; font-weight: 600;
   font-family: var(--font-display); font-size: 0.95rem;
   transition: transform 160ms ease, background-color 160ms ease, box-shadow 160ms ease, color 160ms ease;
   &:active { transform: scale(0.97); }
@@ -170,7 +170,7 @@
 
 .clinic-hero-ctas { position: absolute; bottom: 18%; left: 50%; width: min(500px, calc(100% - 40px)); transform: translateX(-50%); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
 @media (min-width: 901px) { .clinic-hero-ctas { width: min(532px, calc(100% - 40px)); gap: 52px; } }
-.clinic-hero-cta { display: flex; align-items: center; justify-content: center; justify-self: center; width: 100%; max-width: 240px; gap: 10px; min-height: 52px; padding: 12px 19px; border: 1px solid; border-radius: 999px; font-size: 13px; font-weight: 600; cursor: pointer; transition: background-color 180ms ease, color 180ms ease; }
+.clinic-hero-cta { display: flex; align-items: center; justify-content: center; justify-self: center; width: 100%; max-width: 240px; gap: 10px; min-height: 52px; padding: 12px 19px; border: 1px solid; border-radius: 10px; font-size: 13px; font-weight: 600; cursor: pointer; transition: background-color 180ms ease, color 180ms ease; }
 .clinic-hero-cta svg { flex-shrink: 0; width: 18px; height: 18px; }
 .clinic-hero-cta svg:last-child { margin-left: auto; }
 .clinic-hero-cta span { margin-right: auto; white-space: nowrap; }
@@ -197,16 +197,16 @@
 .clinic-hero { box-sizing: content-box; padding-bottom: 40px; margin-bottom: -40px; }
 /* One floating navigation bar stays available throughout the page. */
 #services, #team, #contact { scroll-margin-top: 120px; }
-.clinic-topbar { position: fixed; z-index: 45; top: 16px; left: 50%; transform: translateX(-50%); width: max-content; max-width: calc(100% - 40px); display: flex; align-items: center; gap: 56px; padding: 8px 8px 8px 24px; border-radius: 999px; border: 0; background: rgb(0 0 0 / .65); color: #fff; font-family: "Montserrat", "Noto Sans Armenian", sans-serif; }
+.clinic-topbar { position: fixed; z-index: 45; top: 16px; left: 50%; transform: translateX(-50%); width: max-content; max-width: calc(100% - 40px); display: flex; align-items: center; gap: 44px; padding: 6px 6px 6px 20px; border-radius: 14px; border: 0; background: rgb(0 0 0 / .65); color: #fff; font-family: "Montserrat", "Noto Sans Armenian", sans-serif; }
 .clinic-nav { display: flex; align-items: center; gap: 24px; }
 .clinic-nav a { display: inline-block; font-size: 12px; font-weight: 500; white-space: nowrap; text-decoration: none; transition: transform 180ms ease; }
 .clinic-nav a:hover { text-decoration: none; transform: scale(1.07); }
 .clinic-header-actions { display: flex; align-items: center; gap: 8px; }
-.clinic-header-icon { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; width: 38px; height: 38px; border: 1px solid #ffffff70; border-radius: 50%; background: transparent; color: #fff; transition: background-color 160ms ease; }
+.clinic-header-icon { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; width: 34px; height: 34px; border: 1px solid #ffffff70; border-radius: 9px; background: transparent; color: #fff; transition: background-color 160ms ease; }
 .clinic-header-icon:hover { background: #ffffff20; }
 .clinic-header-icon svg { width: 19px; height: 19px; }
 .clinic-nav-toggle { display: none; cursor: pointer; }
-.clinic-book { display: flex; justify-content: space-between; align-items: center; gap: 20px; min-width: 168px; min-height: 48px; padding: 0 20px; border: 1px solid #ffffff70; border-radius: 999px; background: transparent; color: #fff; font-size: 12px; font-weight: 600; cursor: pointer; transition: background-color 180ms ease, color 180ms ease; }
+.clinic-book { display: flex; justify-content: space-between; align-items: center; gap: 20px; min-width: 150px; min-height: 42px; padding: 0 18px; border: 1px solid #ffffff70; border-radius: 10px; background: transparent; color: #fff; font-size: 12px; font-weight: 600; cursor: pointer; transition: background-color 180ms ease, color 180ms ease; }
 .clinic-book:hover { background: #fff; color: #171717; }
 @media (max-width: 900px) {
   .clinic-topbar { max-width: calc(100% - 32px); padding: 8px 8px 8px 20px; gap: 28px; }
@@ -218,8 +218,8 @@
 }
 @media (max-width: 600px) {
   #services, #team, #contact { scroll-margin-top: 92px; }
-  .clinic-topbar { top: 12px; width: max-content; max-width: calc(100% - 24px); gap: 0; padding: 8px; border-radius: 999px; }
-  .clinic-nav { display: none; position: absolute; top: calc(100% + 8px); left: 0; width: 100%; padding: 20px 24px; border-radius: 22px; border: 0; background: rgb(0 0 0 / .65); color: #fff; flex-direction: column; align-items: stretch; gap: 22px; }
+  .clinic-topbar { top: 12px; width: max-content; max-width: calc(100% - 24px); gap: 0; padding: 8px; border-radius: 14px; }
+  .clinic-nav { display: none; position: absolute; top: calc(100% + 8px); left: 0; width: 100%; padding: 20px 24px; border-radius: 14px; border: 0; background: rgb(0 0 0 / .65); color: #fff; flex-direction: column; align-items: stretch; gap: 22px; }
   .clinic-nav[data-open="true"] { display: flex; }
   .clinic-nav a { font-size: 12px; }
   .clinic-header-actions { margin-left: 0; justify-content: center; gap: 9px; }
@@ -231,7 +231,7 @@
   .clinic-book svg { width: 19px; }
 }
 
-.clinic-facts { position: relative; width: 100%; background-color: #000; color: #fff; border-radius: 40px 40px 0 0; z-index: 1; }
+.clinic-facts { position: relative; width: 100%; background-color: #000; color: #fff; border-radius: 22px 22px 0 0; z-index: 1; }
 
 .clinic-facts ul { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: center; width: 100%; max-width: 1280px; min-height: 172px; margin: 0 auto; padding: 64px 28px; list-style: none; }
 .clinic-facts li { display: flex; align-items: center; justify-content: center; text-align: center; gap: 11px; min-height: 30px; padding: 0 22px; font-size: 13px; font-weight: 600; line-height: 1.4; transition: color 180ms ease; }
@@ -250,7 +250,7 @@
 .services-section .service-item[data-open="true"] .service-chevron { color: #171717; }
 .services-section .btn-primary { background: #171717; color: #fff; box-shadow: none; }
 .services-section .btn-primary:hover { background: #333; }
-.service-item { overflow: hidden; border: 1px solid var(--border); border-radius: 24px; background: var(--card); transition: background-color 200ms ease, border-color 200ms ease; }
+.service-item { overflow: hidden; border: 1px solid var(--border); border-radius: 14px; background: var(--card); transition: background-color 200ms ease, border-color 200ms ease; }
 .service-item[data-open="true"] { border-color: var(--primary); background: var(--primary-soft); }
 .service-trigger { display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; padding: 20px; text-align: left; font-size: 18px; font-weight: 600; cursor: pointer; }
 .service-chevron { flex-shrink: 0; transition: transform 220ms cubic-bezier(.2,.7,.2,1), color 180ms ease; }
@@ -335,12 +335,12 @@
 .team-marquee:not([data-ready="true"]) .team-marquee-track { animation-play-state: paused; }
 .team-marquee-group { display: flex; flex-shrink: 0; gap: var(--gap); padding-right: var(--gap); }
 .team-profile { width: 256px; flex-shrink: 0; }
-.team-profile-photo { position: relative; height: 368px; overflow: hidden; contain: layout paint; border-radius: 16px; background: #171717; }
+.team-profile-photo { position: relative; height: 368px; overflow: hidden; contain: layout paint; border-radius: 12px; background: #171717; }
 .team-profile-photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .team-profile-caption { position: absolute; inset: auto 0 0; padding: 8px; border-radius: 8px; background: #262626e6; }
 .team-profile-caption h3 { color: #f5f5f5; font-size: 15px; font-weight: 600; }
 .team-profile-caption p { margin-top: 5px; font-size: 12px; color: #aaa; }
-.team-sample-badge { position: absolute; top: 12px; left: 12px; padding: 5px 9px; border-radius: 999px; background: #000000b3; color: #ccc; font-size: 10px; }
+.team-sample-badge { position: absolute; top: 12px; left: 12px; padding: 5px 9px; border-radius: 6px; background: #000000b3; color: #ccc; font-size: 10px; }
 @keyframes team-marquee { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(-50%, 0, 0); } }
 .team-intro-footer { position: relative; z-index: 1; display: flex; align-items: flex-start; gap: 24px; max-width: 880px; margin: 40px auto 0; padding: 0 24px; text-align: left; }
 .team-intro-footer blockquote { margin: 0; font-family: var(--font-sans); font-size: 15px; font-weight: 400; color: #aaa; line-height: 1.8; }
@@ -428,18 +428,277 @@
   .clinic-topbar { background: #000; backdrop-filter: none; -webkit-backdrop-filter: none; }
 }
 
-/* Clinic film preparation: fixed foreground over a scroll-scrubbed full panel. */
-.story-clinic-section { height: 350svh; }
-.story-clinic-section .story-sticky { isolation: isolate; }
-.story-clinic-video { position: absolute; inset: 0; z-index: -1; width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
-.story-clinic-section .story-visual { aspect-ratio: 3 / 2; pointer-events: none; }
-.story-clinic-section .story-copy { display: flex; flex-direction: column; height: min(28rem, calc(100svh - 13rem)); }
-.story-clinic-section .story-copy-label { flex: none; }
-.story-clinic-section .story-text-window { flex: 1; min-height: 0; height: auto; }
-@media (min-width: 768px) {
-  .story-clinic-section .story-copy { top: 14%; transform: translateX(-50%); }
-  .story-clinic-section .story-scroll-hint { top: calc(14% + var(--story-card-height, 448px) + 20px); }
-}
+/* Treatment steps: a minimal, editorial spread on Apple's light grey. No rounded corners:
+   the video is a sharp 16:9 rectangle pinned in place, four clinic photos rise into the
+   row beneath it, and the step text sits in a column to the right, top-aligned with the
+   video. The motion itself is driven per frame from src/lib/story-motion.ts. */
+.sx { position: relative; height: 360svh; background: #f5f5f7; color: #1d1d1f; overflow-anchor: none; }
+.sx-stage { background: #f5f5f7; position: sticky; top: 0; height: 100svh; overflow: hidden; display: grid; align-content: center; padding: 104px clamp(32px, 6vw, 96px) 40px; }
+/* A linear shade, darkest on the left under the media, drifting slowly with the
+   scroll. It is its own oversized layer moved by transform only, so nothing repaints. */
+.sx-shade { position: absolute; inset: -30%; pointer-events: none; background: linear-gradient(112deg, #bfbfc4 0%, #d6d6da 28%, #eaeaee 56%, #f5f5f7 80%); will-change: transform; }
+.sx-grid { position: relative; z-index: 1; display: grid; align-items: start; grid-template-columns: clamp(360px, 38vw, 600px) minmax(240px, 330px); column-gap: clamp(36px, 4.5vw, 72px); row-gap: 8px; justify-content: center; }
+/* Media sit in a white mount: 9px frame, 12px outer corners, inner corners 4px (outer minus frame) so the curves nest. */
+/* The white mount is one frame that deforms: it first pours down from the video's bottom
+   edge to wrap the first photo, then the same piece stretches left to right across the
+   others in turn. A clip-path inset with rounded corners shapes it, so its corners stay
+   round while it moves. Photos arrive bare and settle into it. */
+.sx-media { grid-column: 1; grid-row: 1; align-self: start; filter: drop-shadow(0 10px 18px rgb(0 0 0 / .07)); }
+.sx-video { padding: 9px; background: #fff; border-radius: 12px; }
+.sx-video video { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 4px; background: #e8e8ed; }
+
+/* Photo row: four portrait frames, flush with the video's width. They start a full screen
+   below and squash and stretch from their bottom edge as they land. */
+.sx-photos { position: relative; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.sx-ext { position: absolute; inset: 0; background: #fff; clip-path: inset(0 100% 100% 0 round 0 0 12px 12px); will-change: clip-path; }
+.sx-photo { position: relative; margin: 0; padding: 0 4.5px 9px; transform: translate3d(0, 100vh, 0); transform-origin: 50% 100%; will-change: transform; }
+/* Three photos fill the right three slots; the first slot stays open, so the video keeps
+   its rounded bottom-left corner and the frame ends in a corner of its own. */
+.sx-photo:first-of-type { grid-column-start: 2; padding-left: 9px; }
+.sx-photo:last-of-type { padding-right: 9px; }
+/* Inner corner where the frame turns back under the video: a white square with a 12px
+   quarter-circle cut, matching the outer corners. Placed per frame. */
+.sx-fillet { position: absolute; left: 0; top: 0; width: 12px; height: 12px; background: #fff; -webkit-mask: radial-gradient(circle at 0 100%, transparent 11.5px, #000 12px); mask: radial-gradient(circle at 0 100%, transparent 11.5px, #000 12px); opacity: 0; pointer-events: none; will-change: transform; }
+.sx-photo img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 4px; background: #e8e8ed; }
+
+/* Text column: a fixed label, then one step at a time. Every line lives in its own mask
+   and slides up into it; the padding gives the small overshoot room to breathe. */
+.sx-text { grid-column: 2; grid-row: 1; align-self: start; min-width: 0; display: flex; flex-direction: column; }
+.sx-label { margin: 0 0 20px; font-size: 13px; font-weight: 500; letter-spacing: .01em; color: #86868b; }
+.sx-steps { position: relative; height: 16.5rem; }
+.sx-step { position: absolute; inset: 0; }
+.sx-line { overflow: hidden; padding-top: .14em; margin-top: -.14em; }
+/* Spacing lives between the masks, never inside them, so a lifted line clears its mask completely. */
+.sx-line + .sx-line { margin-top: calc(12px - .14em); }
+.sx-line > * { display: block; transform: translate3d(0, 110%, 0); transform-origin: 50% 100%; will-change: transform; }
+/* The large italic numeral is the accent; the serif title and the quiet sans line follow. */
+.sx-num { font-family: "Instrument Serif", serif; font-style: italic; font-size: clamp(48px, 4.6vw, 72px); font-weight: 400; line-height: .9; letter-spacing: -.02em; color: #1d1d1f; }
+.sx-title { margin: 0; font-family: "Noto Serif Armenian", serif; font-size: clamp(21px, 1.8vw, 28px); font-weight: 400; line-height: 1.2; letter-spacing: -.015em; text-wrap: balance; }
+.sx-desc { margin: 0; max-width: 30em; font-size: 13px; line-height: 1.6; color: #6e6e73; }
+/* What each step includes: small outlined tags, transparent, hairline grey, quiet type. */
+.sx-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 2px 0 0; padding: 0; list-style: none; }
+.sx-tag { padding: 4px 10px; border: 1px solid rgb(0 0 0 / .14); border-radius: 8px; font-size: 11.5px; line-height: 1.3; color: #6e6e73; white-space: nowrap; }
+
+/* Progress: three hairline bars level with the bottom of the photo row; the current step's
+   bar is full length and dark, the others short and faint (scale and opacity only). */
+.sx-bars { margin-top: 20px; display: flex; gap: 8px; }
+.sx-bars i { width: 44px; height: 2px; background: #1d1d1f; transform-origin: 0 50%; transform: scaleX(.35); opacity: .3; }
+.sx-bars i:first-child { transform: none; opacity: 1; }
+
+/* Phones: a simple stack for now (video, photos, text, bars); not yet designed. */
 @media (max-width: 767px) {
-  .story-clinic-section { height: 300svh; }
+  .sx { height: 300svh; }
+  .sx-stage { align-content: start; padding: 84px 20px 24px; }
+  .sx-grid { grid-template-columns: minmax(0, 1fr); row-gap: 8px; }
+  .sx-media, .sx-text { grid-column: 1; grid-row: auto; }
+  .sx-text { margin-top: 20px; }
+  .sx-label { margin-bottom: 16px; }
+  .sx-steps { height: 14rem; }
+  .sx-num { font-size: 48px; }
+  .sx-bars { margin-top: 12px; }
 }
+@media (prefers-reduced-motion: reduce) {
+  .sx-photo, .sx-line > * { transform: none; }
+}
+
+/* Large screens (around 1920x1080): the whole spread steps down about a sixth so it keeps
+   the same proportion to the screen as it has at laptop sizes. */
+@media (min-width: 1680px) {
+  .sx-grid { grid-template-columns: 500px 280px; column-gap: 64px; }
+  .sx-label { font-size: 12px; margin-bottom: 22px; }
+  .sx-steps { height: 14rem; }
+  .sx-num { font-size: 60px; }
+  .sx-title { font-size: 23px; }
+  .sx-desc { font-size: 12.5px; }
+  .sx-bars i { width: 32px; }
+}
+
+/* Team, desktop: portraits on the inside of a cylinder (geometry in src/lib/curved-carousel.ts).
+   Each card fills the band and is cut to its rounded quad per frame; the portrait, shade
+   and caption inside are moved by transform only. Cards run off the section edges. */
+.team-curve { display: none; position: relative; width: 100%; overflow: hidden; cursor: grab; touch-action: pan-y; user-select: none; }
+.team-curve[data-dragging="true"] { cursor: grabbing; }
+.team-curve-card { position: absolute; inset: 0; margin: 0; background: #171717; will-change: clip-path; }
+.team-curve-media { position: absolute; left: 0; top: 0; max-width: none; object-fit: cover; transform-origin: 0 0; will-change: transform; pointer-events: none; }
+.team-curve-shade { position: absolute; left: 0; top: 0; transform-origin: 0 0; background: linear-gradient(to top, rgb(0 0 0 / .72), rgb(0 0 0 / .35) 55%, transparent); will-change: transform; }
+.team-curve-caption { position: absolute; left: 0; top: 0; color: #f5f5f5; will-change: transform; }
+.team-curve-caption h3 { font-size: 14px; font-weight: 600; line-height: 1.25; }
+.team-curve-caption p { margin-top: 4px; font-size: 11.5px; color: #c0c0c0; line-height: 1.35; }
+@media (min-width: 768px) {
+  .team-curve { display: block; margin: 8px 0 0; }
+  .team-marquee-phone { display: none; }
+}
+
+/* Reviews: keep the animated testimonials on the site's monochrome palette. */
+.testimonials-section { --primary: #1d1d1f; --primary-deep: #fff; background: #fff; color: #171717; }
+.testimonials-section .review-rating { --primary: #fff; background: #000; color: #fff; }
+.testimonials-section .review-rating:hover { background: #242424; }
+.testimonials-section h2 { font-family: "Noto Serif Armenian", serif; font-weight: 400; letter-spacing: -.015em; }
+@media (min-width: 768px) { .testimonials-section > div { width: calc(100% - var(--page-gutter) * 2); max-width: var(--content-width); margin-inline: auto; padding-inline: 0; } }
+/* Reviews: the heading group sits flush right, against the rating and card column. */
+@media (min-width: 768px) {
+  .testimonials-section .space-y-6 { text-align: right; }
+  .testimonials-section .space-y-6 > p { margin-left: auto; }
+  .testimonials-section .space-y-6 > .flex { justify-content: flex-end; }
+}
+/* Reviews: the two columns form one centred group with a single, generous gutter
+   between them, so the composition sits balanced on the page's axis. */
+@media (min-width: 768px) {
+  .testimonials-section .grid { max-width: 1000px; margin-inline: auto; column-gap: clamp(48px, 6vw, 88px); align-items: center; }
+  .testimonials-section .grid > div:last-child { margin-right: 0; }
+}
+
+/* Story section, dark: a deep graphite page with a visible diagonal glow, white type.
+   Apple's dark label scale: primary #f5f5f7, secondary ~72%, tertiary ~55%. */
+.sx, .sx-stage { background: #141416; color: #f5f5f7; }
+.sx-shade { background: linear-gradient(112deg, #3c3c41 0%, #2b2b2f 28%, #1d1d20 56%, #141416 80%); }
+.sx-label { color: rgb(235 235 245 / .55); }
+.sx-num, .sx-title { color: #f5f5f7; }
+.sx-desc { color: rgb(235 235 245 / .72); }
+.sx-tag { border-color: rgb(255 255 255 / .22); color: rgb(235 235 245 / .72); }
+.sx-media { filter: drop-shadow(0 14px 28px rgb(0 0 0 / .45)); }
+/* No gradient: one flat Apple dark surface (#161617, as on apple.com's dark sections);
+   the framed video and white type carry the section. */
+.sx, .sx-stage { background: #161617; }
+.sx-shade { display: none; }
+/* Video quality and corners: no filter above the video (a filter forces slow,
+   blurry scaling of every frame), so the frame casts a plain box-shadow instead; and
+   the video is clipped with clip-path, which Chrome honours even while it plays,
+   so all four corners stay round. */
+.sx-media { filter: none; }
+.sx-video { box-shadow: 0 14px 28px rgb(0 0 0 / .45); }
+.sx-video video { clip-path: inset(0 round 4px); }
+/* The mount around the video: Apple's light grey instead of white, softer on the dark page. */
+.sx-video { background: #b4b4b8; }
+
+/* Section title as an editorial kicker: a large, thin serif that hangs off the video's
+   top-left corner, mostly above it and just into it. Difference blending keeps it legible
+   where it crosses the bright footage. */
+.sx-media { position: relative; }
+.sx-kicker { position: absolute; z-index: 2; left: -22%; top: 0; margin: 0; transform: translateY(-78%); font-family: "Noto Serif Armenian", serif; font-weight: 200; font-size: clamp(48px, 4.6vw, 88px); line-height: 1; letter-spacing: -.02em; white-space: nowrap; color: #fff; mix-blend-mode: difference; pointer-events: none; }
+@media (max-width: 767px) { .sx-kicker { position: static; transform: none; margin: 0 0 12px; font-size: 40px; mix-blend-mode: normal; } }
+
+/* Section signature: "Փուլերը" in Tumanian's Handwriting (Ruben Tarumian, after Hovhannes
+   Tumanyan's own hand; free for commercial use), tilted like a signature across the video's
+   top-left corner. Difference blending keeps it legible over the bright footage. */
+@font-face { font-family: "Tumanian Handwriting"; src: url("/fonts/tumanian-dzeragir.ttf") format("truetype"); font-display: swap; }
+.sx-kicker { left: -18%; transform: translateY(-55%) rotate(-7deg); transform-origin: 0 100%; font-family: "Tumanian Handwriting", cursive; font-weight: 400; font-size: clamp(64px, 7vw, 112px); letter-spacing: 0; }
+@media (max-width: 767px) { .sx-kicker { transform: rotate(-5deg); transform-origin: 0 100%; font-size: 52px; } }
+.sx-kicker { color: #c7c7cc; mix-blend-mode: difference; }
+/* Signature font: Poqrik dzeragir (fonter.am, free for commercial and personal use). */
+@font-face { font-family: "Poqrik Dzeragir"; src: url("/fonts/poqrik-dzeragir.ttf") format("truetype"); font-display: swap; }
+.sx-kicker { font-family: "Poqrik Dzeragir", cursive; }
+/* Signature: 1.5x smaller, sitting fully on the page above the video (no overlap). */
+.sx-kicker { font-size: clamp(43px, 4.67vw, 75px); transform: translateY(-118%) rotate(-7deg); }
+/* Back to Tumanian's Handwriting at its earlier size, still sitting fully above the video. */
+.sx-kicker { font-family: "Tumanian Handwriting", cursive; font-size: clamp(64px, 7vw, 112px); }
+
+/* Hero lettering after the swash-capital style: each word opens with a large Pinyon Script
+   capital (free, Google Fonts) that dips below the baseline and tucks under the tall,
+   condensed Instrument Serif letters that follow. Both words are upright. */
+.clinic-headline .swash { font-family: "Pinyon Script", cursive; font-weight: 400; font-style: normal; font-size: 1.5em; line-height: 0; letter-spacing: 0; vertical-align: -0.1em; margin-right: 0.2em; position: relative; z-index: 1; }
+
+/* Swash capitals: a touch smaller, set close enough that each one just meets the letter
+   after it, the way a swash capital connects in print. */
+.clinic-headline .swash { font-size: 1.38em; vertical-align: -0.09em; margin-right: 0.1em; }
+/* PC uses the phone's treatment: one white headline in difference mode, dark over the
+   light half and light over the film. */
+@media (min-width: 601px) {
+  .clinic-headline { color: #fff; mix-blend-mode: difference; }
+  .clinic-headline-light { display: none; }
+}
+
+
+/* Hero lettering, pairing 3: Mrs Saint Delafield pen-script capitals with Cormorant for the
+   rest (both free, Google Fonts). The fine script capital is drawn small in its em box, so
+   it is set larger, dropped below the baseline and tucked under the next letter. */
+.clinic-headline { font-family: "Cormorant", "Noto Serif Armenian", serif; font-weight: 500; letter-spacing: -.035em; }
+.clinic-headline .swash { font-family: "Mrs Saint Delafield", cursive; font-size: 2em; vertical-align: -0.15em; margin-right: 0.14em; }
+
+/* Hero lettering, lowercase in Nyght Serif italic (Maksym Kobuzan, SIL Open Font License;
+   licence in public/fonts/nyght-serif-LICENSE.txt). Regular 400 / Medium 500. */
+@font-face { font-family: "Nyght Serif"; src: url("/fonts/nyght-serif-regular-italic.otf") format("opentype"); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "Nyght Serif"; src: url("/fonts/nyght-serif-medium-italic.otf") format("opentype"); font-weight: 500; font-style: italic; font-display: swap; }
+.clinic-headline { font-family: "Nyght Serif", "Cormorant", serif; font-style: italic; font-weight: 400; letter-spacing: -.02em; }
+/* Headline 1.5x smaller across sizes. */
+.clinic-headline { font-size: clamp(77px, 8.27vw, 173px); }
+@media (max-width: 900px) { .clinic-headline { font-size: 8.67vw; } }
+@media (max-width: 600px) { .clinic-headline { font-size: 13.3vw; } }
+/* Headline centred optically in the space between the menu bar and the buttons. */
+.clinic-headline { top: 42.8%; transform: translateY(-50%); }
+@media (max-width: 600px) { .clinic-headline { top: 40%; } }
+/* Swash capitals: smaller, tucked under the following letters. They sit behind the
+   lowercase (painted first, no stacking lift), so the overlap never hides a letter. */
+.clinic-headline .swash { font-size: 1.62em; vertical-align: -0.12em; margin-right: -0.01em; position: static; z-index: auto; }
+/* Headline tracking: opened slightly so the italic letters breathe at display size. */
+.clinic-headline { letter-spacing: .03em; }
+.clinic-headline .swash { letter-spacing: 0; }
+/* Second line ("Dental Clinic") set smaller than the name, as a subline. */
+.clinic-headline > span:last-child { font-size: .72em; margin-top: .1em; }
+/* "Dental Clinic" in Borel (Rosa Wagner, SIL Open Font License, Google Fonts): a rounded
+   handwriting with tall loops, so it is set smaller with tight leading to sit under the name. */
+.clinic-headline span.clinic-headline-sub { font-family: "Borel", cursive; font-style: normal; font-weight: 400; font-size: .4em; line-height: 1; letter-spacing: 0; margin-top: .35em; }
+
+/* Headline: "Alphastom" 1.25x larger; the Borel subline keeps its earlier size (0.4 / 1.25). */
+.clinic-headline { font-size: clamp(96px, 10.34vw, 216px); }
+@media (max-width: 900px) { .clinic-headline { font-size: 10.84vw; } }
+@media (max-width: 600px) { .clinic-headline { font-size: 16.6vw; } }
+.clinic-headline span.clinic-headline-sub { font-size: .32em; }
+
+/* "Dental Clinic": DT Nightingale Light (Death of Typography, SIL Open Font License;
+   licence in public/fonts/dt-nightingale-LICENSE.txt), right-aligned under the end of
+   "Alphastom" like a signature line (placement B). */
+@font-face { font-family: "DT Nightingale"; src: url("/fonts/dt-nightingale-light.otf") format("opentype"); font-weight: 300; font-style: normal; font-display: swap; }
+.clinic-headline span.clinic-headline-sub { font-family: "DT Nightingale", "Cormorant", serif; font-weight: 300; font-size: .36em; letter-spacing: .02em; margin-top: .3em; }
+@media (min-width: 601px) { .clinic-headline span.clinic-headline-sub { text-align: right; padding-right: 26%; } }
+
+/* Headline as one centred block that hugs its widest line, so "Dental Clinic" can align
+   exactly to the right edge of "Alphastom". The subline is a plain, quiet sans at a small
+   size, lightly tracked, with a clear gap under the name. */
+@media (min-width: 601px) {
+  .clinic-headline { left: 50%; width: max-content; transform: translate(-50%, -50%); }
+}
+.clinic-headline span.clinic-headline-sub { font-family: "Noto Sans Armenian", system-ui, sans-serif; font-style: normal; font-weight: 500; font-size: .17em; letter-spacing: .06em; line-height: 1.2; margin-top: .9em; }
+@media (min-width: 601px) { .clinic-headline span.clinic-headline-sub { text-align: right; padding-right: .2em; } }
+/* Subline tucked closer under the name and set in from its right edge. */
+.clinic-headline span.clinic-headline-sub { margin-top: .25em; }
+@media (min-width: 601px) { .clinic-headline span.clinic-headline-sub { padding-right: 1.4em; } }
+.clinic-headline span.clinic-headline-sub { font-weight: 300; }
+
+/* Palette hero (PC): tan field on the left, red headline where it sits on the field,
+   and the difference overlay only where it crosses the video. Both copies share one box,
+   centred on the seam, so clipping each at 50% splits them exactly at the video edge. */
+@media (min-width: 601px) {
+  .clinic-hero { --hero-field: #F8F0DE; --hero-ink: #1d1d1f; background: var(--hero-field); }
+  .clinic-hero::before { background: var(--hero-field); }
+  .clinic-hero-dots { fill: #BF8761; opacity: 1; }
+  .clinic-headline { color: var(--hero-ink); mix-blend-mode: normal; clip-path: inset(-50% 50% -50% -50%); }
+  .clinic-headline.clinic-headline-light { display: block; color: #fff; mix-blend-mode: difference; clip-path: inset(-50% -50% -50% 50%); }
+  .clinic-location, .clinic-location > span, .clinic-location small { color: var(--hero-ink); }
+  .clinic-hero-cta-book { background: var(--hero-ink); border-color: var(--hero-ink); }
+  .clinic-hero-cta-book { color: var(--hero-field); }
+  .clinic-hero-cta-book:hover { color: var(--hero-ink); }
+  /* Lift the corner notes clear of the screen edge and the facts panel below. */
+  .clinic-location, .clinic-hero-note { bottom: 9%; }
+  /* A larger swash A, set a touch further from the "l" so the loops still breathe. */
+  .clinic-headline .swash { font-size: 1.9em; vertical-align: -0.12em; margin-right: .04em; }
+}
+
+/* "Alph" ends and "astom" begins exactly on the video seam: two equal columns around
+   the centre, so no letter is ever split between the red and the difference overlay. */
+.clinic-headline > span.hl-row { display: grid; grid-template-columns: 1fr 1fr; column-gap: 0; font-size: 1em; margin: 0; }
+.clinic-headline .hl-left { justify-self: end; }
+.clinic-headline .hl-right { justify-self: start; }
+.clinic-headline span.clinic-headline-sub { display: block; }
+
+/* Without the top menu, the headline and the two buttons read as one group, centred a touch
+   above the middle (optical centre, about 46-47% of the screen). The buttons hang from the
+   headline by a gap tied to its size, so the pair keeps its proportions at every width. */
+@media (min-width: 601px) {
+  .clinic-hero { --hl-size: clamp(96px, 10.34vw, 216px); }
+  .clinic-headline { top: 45svh; }
+  .clinic-hero-ctas { top: calc(45svh + var(--hl-size) * 1 - 30px); bottom: auto; }
+}
+
+/* Hero buttons: much softer corners, a near-capsule. */
+.clinic-hero-cta { border-radius: 22px; }

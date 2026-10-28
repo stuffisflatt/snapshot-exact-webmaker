@@ -1,4 +1,5 @@
 import { Marquee } from "@/components/ui/marquee";
+import { CurvedTeam } from "@/components/ui/curved-team";
 
 export type TeamMember = { name: string; specialty: string; photo: string; photoSrcSet?: string };
 
@@ -32,7 +33,9 @@ export default function Team({ members = [] }: { members?: TeamMember[] }) {
         </div>
       </div>
 
-      <Marquee>
+      {/* Desktop: curved, draggable carousel. Phones keep the flat marquee for now. */}
+      <CurvedTeam members={profiles} isSample={isSample} />
+      <Marquee className="team-marquee-phone">
         {profiles.map((member, index) => (
           <article className="team-profile" key={`${member.photo}-${index}`}>
             <div className="team-profile-photo">
