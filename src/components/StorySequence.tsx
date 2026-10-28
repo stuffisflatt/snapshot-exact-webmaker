@@ -177,7 +177,7 @@ export function StoryScroll({ videoSrc, phoneVideoSrc, posterSrc }: { videoSrc?:
   }, [phone, blobSrc]);
 
   return (
-    <section ref={ref} id="how" aria-label="Ինչպես ենք աշխատում" className="sx">
+    <section ref={ref} id="how" aria-label="Ինչպես ենք աշխատում" className="sx" data-step={step}>
       <div className="sx-stage">
         <div className="sx-shade" aria-hidden="true" />
         <div className="sx-grid">

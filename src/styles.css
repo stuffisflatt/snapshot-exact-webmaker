@@ -754,7 +754,7 @@
 .sx-label, .sx-desc, .sx-tag { color: var(--muted-foreground); }
 .sx-tag { border-color: var(--border); }
 .sx-num, .sx-title { color: var(--foreground); }
-.sx-video, .sx-ext, .sx-fillet { background: var(--clinic-pewter); }
+.sx-video, .sx-ext, .sx-fillet { background: oklch(0.79 0.015 250); }
 .testimonials-section { padding-block: var(--section-space); }
 .testimonials-section > div, .faq-content, .contact-content {
   width: calc(100% - var(--page-gutter) * 2); max-width: var(--content-width); margin-inline: auto; padding-inline: 0;
@@ -855,3 +855,19 @@
 }
 .sky-zone .review-rating:hover { background: oklch(1 0 0); color: var(--clinic-blue); }
 .sky-zone .testimonials-section .review-rating { padding: 1rem 1.25rem !important; }
+
+/* Story video: larger (about 42% of the screen width), and its frame eases into a slightly
+   different shape on each step; the text column moves with it. */
+.team-bottom-decoration { display: none; }
+@media (min-width: 768px) {
+  .sx .sx-grid { grid-template-columns: var(--sx-w, 42.5vw) minmax(240px, 330px); transition: grid-template-columns 1s cubic-bezier(.65, 0, .35, 1); }
+  .sx[data-step="1"] .sx-grid { --sx-w: 38vw; }
+  .sx[data-step="2"] .sx-grid { --sx-w: 44vw; }
+}
+.sx .sx-video video { transition: aspect-ratio 1s cubic-bezier(.65, 0, .35, 1); }
+.sx[data-step="1"] .sx-video video { aspect-ratio: 4 / 3; }
+.sx[data-step="2"] .sx-video video { aspect-ratio: 2 / 1; }
+.sx .sx-video { transition: border-radius 1s ease; }
+.sx .sx-bars i { background: var(--clinic-pewter); }
+.sx .sx-bars i:first-child { background: oklch(0.7 0.08 250); }
+.sx .sx-tag { border-color: oklch(0.7 0.07 250 / .45); }
