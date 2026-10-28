@@ -97,7 +97,6 @@ export function StoryScroll({ videoSrc, phoneVideoSrc, posterSrc }: { videoSrc?:
         const lerp = (j: number) => keys[k][j] + (keys[k + 1][j] - keys[k][j]) * e;
         section.style.setProperty("--sx-w", `${lerp(0).toFixed(2)}vw`);
         section.style.setProperty("--sx-ar", lerp(1).toFixed(3));
-        section.style.setProperty("--sx-r", `${lerp(2).toFixed(1)}px`);
       }
       // Photos travel up from below the screen into the row under the video; transform
       // and opacity only, so the fixed video and text never re-lay out.

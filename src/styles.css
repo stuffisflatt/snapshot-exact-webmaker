@@ -862,7 +862,6 @@
   .sx .sx-grid { grid-template-columns: var(--sx-w, 42.5vw) minmax(240px, 330px); }
 }
 .sx .sx-video video { aspect-ratio: var(--sx-ar, 1.78); }
-.sx .sx-video { border-radius: var(--sx-r, 12px) !important; }
 .sx .sx-bars i { background: var(--clinic-pewter); }
 .sx .sx-bars i:first-child { background: oklch(0.7 0.08 250); }
 .sx .sx-tag { border-color: oklch(0.7 0.07 250 / .45); }
