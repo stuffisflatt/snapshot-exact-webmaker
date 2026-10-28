@@ -88,6 +88,17 @@ export function StoryScroll({ videoSrc, phoneVideoSrc, posterSrc }: { videoSrc?:
       displayed = reduced.matches ? target : displayed + (target - displayed) * (1 - Math.exp(-dt / 80));
       if (Math.abs(target - displayed) < .0001) displayed = target;
       const p = displayed, still = reduced.matches;
+      // Video frame shape follows the scroll: hand-tuned, deliberately uneven keyframes.
+      if (!still) {
+        const keys = [[42.5, 1.78, 12], [36, 1.25, 20], [39.5, 1.5, 8], [45, 2.1, 16], [41, 1.62, 12]];
+        const t = Math.min(1, Math.max(0, p)) * (keys.length - 1);
+        const k = Math.min(keys.length - 2, Math.floor(t)), f = t - k;
+        const e = f * f * (3 - 2 * f);
+        const a = keys[k]!, b = keys[k + 1]!;
+        const lerp = (j: number) => a[j]! + (b[j]! - a[j]!) * e;
+        section!.style.setProperty("--sx-w", `${lerp(0).toFixed(2)}vw`);
+        section!.style.setProperty("--sx-ar", lerp(1).toFixed(3));
+      }
       // Photos travel up from below the screen into the row under the video; transform
       // and opacity only, so the fixed video and text never re-lay out.
       const travel = window.innerHeight;
