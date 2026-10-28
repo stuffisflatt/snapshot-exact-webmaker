@@ -91,7 +91,7 @@ export function StoryScroll({ videoSrc, phoneVideoSrc, posterSrc }: { videoSrc?:
       // Video frame shape follows the scroll: hand-tuned, deliberately uneven keyframes.
       if (!still) {
         const keys = [[42.5, 1.78, 12], [36, 1.25, 20], [39.5, 1.5, 8], [45, 2.1, 16], [41, 1.62, 12]];
-        const t = Math.min(1, Math.max(0, p)) * (keys.length - 1);
+        const t = Math.min(1, Math.max(0, target)) * (keys.length - 1);
         const k = Math.min(keys.length - 2, Math.floor(t)), f = t - k;
         const e = f * f * (3 - 2 * f);
         const a = keys[k]!, b = keys[k + 1]!;
