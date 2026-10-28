@@ -856,18 +856,13 @@
 .sky-zone .review-rating:hover { background: oklch(1 0 0); color: var(--clinic-blue); }
 .sky-zone .testimonials-section .review-rating { padding: 1rem 1.25rem !important; }
 
-/* Story video: larger (about 42% of the screen width), and its frame eases into a slightly
-   different shape on each step; the text column moves with it. */
+/* Story video: about 42% of the screen wide; its shape follows the scroll (set from script). */
 .team-bottom-decoration { display: none; }
 @media (min-width: 768px) {
-  .sx .sx-grid { grid-template-columns: var(--sx-w, 42.5vw) minmax(240px, 330px); transition: grid-template-columns 1s cubic-bezier(.65, 0, .35, 1); }
-  .sx[data-step="1"] .sx-grid { --sx-w: 38vw; }
-  .sx[data-step="2"] .sx-grid { --sx-w: 44vw; }
+  .sx .sx-grid { grid-template-columns: var(--sx-w, 42.5vw) minmax(240px, 330px); }
 }
-.sx .sx-video video { transition: aspect-ratio 1s cubic-bezier(.65, 0, .35, 1); }
-.sx[data-step="1"] .sx-video video { aspect-ratio: 4 / 3; }
-.sx[data-step="2"] .sx-video video { aspect-ratio: 2 / 1; }
-.sx .sx-video { transition: border-radius 1s ease; }
+.sx .sx-video video { aspect-ratio: var(--sx-ar, 1.78); }
+.sx .sx-video { border-radius: var(--sx-r, 12px) !important; }
 .sx .sx-bars i { background: var(--clinic-pewter); }
 .sx .sx-bars i:first-child { background: oklch(0.7 0.08 250); }
 .sx .sx-tag { border-color: oklch(0.7 0.07 250 / .45); }
