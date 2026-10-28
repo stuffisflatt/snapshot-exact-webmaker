@@ -68,7 +68,9 @@
   --clinic-light: oklch(0.96 0.003 250);
   --clinic-secondary: oklch(0.73 0.006 250);
   --clinic-line: oklch(0.34 0.004 260);
-  --clinic-pewter: oklch(0.79 0.015 250);
+  --clinic-pewter: oklch(0.74 0.055 250);
+  --clinic-blue: oklch(0.52 0.085 252);
+  --clinic-blue-soft: oklch(0.94 0.02 250);
   --hero-field: oklch(0.96 0.005 250);
   --hero-ink: oklch(0.23 0.004 260);
   --hero-dot: oklch(0.7 0.009 250);
@@ -794,13 +796,13 @@
   position: relative; isolation: isolate; overflow: hidden;
   background: linear-gradient(180deg,
     oklch(1 0 0) 0%, oklch(0.985 0.008 245) 14%, oklch(0.9 0.05 245) 26%,
-    oklch(0.72 0.12 250) 38%, oklch(0.58 0.16 256) 55%, oklch(0.46 0.16 260) 100%);
+    oklch(0.74 0.08 250) 38%, oklch(0.6 0.1 252) 55%, oklch(0.48 0.1 255) 100%);
 }
 .sky-zone > section, .sky-zone > div:not(.sky-ambient) { position: relative; z-index: 1; background: transparent !important; }
 .sky-zone .services-section {
   --background: transparent; --foreground: oklch(0.2 0.01 255); --card: oklch(1 0 0 / 0.75);
   --card-foreground: oklch(0.2 0.01 255); --muted-foreground: oklch(0.45 0.015 255);
-  --border: oklch(0.2 0.02 255 / 0.12); --primary: oklch(0.45 0.16 258); --clinic-light: oklch(1 0 0);
+  --border: oklch(0.2 0.02 255 / 0.12); --primary: var(--clinic-blue); --clinic-light: oklch(1 0 0);
   --clinic-dark: oklch(0.2 0.01 255); color: var(--foreground);
 }
 .sky-zone .services-section .service-item { backdrop-filter: blur(6px); }
@@ -832,3 +834,24 @@
   100% { transform: translate3d(18vw, -4vh, 0) scale(1.15); opacity: .6; }
 }
 @media (prefers-reduced-motion: reduce) { .sky-ambient span { animation: none; } }
+
+/* Reviews: solid light cards in the familiar review-site style. */
+.sky-zone .testimonials-section .testimonial-card {
+  --card: oklch(1 0 0); --card-foreground: oklch(0.22 0.01 255); --foreground: oklch(0.22 0.01 255);
+  --muted-foreground: oklch(0.47 0.012 255); --border: oklch(0.9 0.006 250);
+  background: oklch(1 0 0); color: var(--foreground); backdrop-filter: none;
+  border: 1px solid var(--border); border-radius: 16px; box-shadow: 0 1px 2px oklch(0.3 0.02 255 / .08), 0 12px 32px -18px oklch(0.25 0.05 255 / .45);
+}
+.sky-zone .testimonials-section .testimonial-card [data-slot="avatar-fallback"], .sky-zone .testimonials-section .testimonial-card .rounded-full > span {
+  background: var(--clinic-blue); color: oklch(1 0 0);
+}
+.sky-zone .testimonials-section .testimonial-card .h-14 { height: 2.75rem; width: 2.75rem; }
+.sky-zone .testimonials-section .testimonial-card svg.fill-primary { fill: oklch(0.8 0.15 80); color: oklch(0.8 0.15 80); }
+.sky-zone .testimonials-section .testimonial-card p:last-child { color: oklch(0.3 0.01 255); font-size: .95rem; }
+.sky-zone .testimonials-section .testimonial-card h3 span { border-color: var(--border); background: var(--clinic-blue-soft); color: var(--clinic-blue); }
+.sky-zone .review-rating {
+  background: oklch(0.975 0.004 250); color: oklch(0.22 0.01 255); backdrop-filter: none; border-radius: 16px;
+  border: 1px solid oklch(0.9 0.006 250); --primary: oklch(0.8 0.15 80); --primary-deep: oklch(0.22 0.01 255);
+}
+.sky-zone .review-rating:hover { background: oklch(1 0 0); color: var(--clinic-blue); }
+.sky-zone .testimonials-section .review-rating { padding: 1rem 1.25rem !important; }
